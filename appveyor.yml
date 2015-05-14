@@ -1,25 +1,24 @@
-# Inspired by https://github.com/GitbookIO/gitbook/blob/master/appveyor.yml
-# Fix line endings in Windows. (runs before repo cloning)
+# Copied from https://github.com/sindresorhus/appveyor-node/blob/master/appveyor.yml
 init:
   - git config --global core.autocrlf input
-
-# Test against these versions of Node.js
 environment:
   matrix:
-    - nodejs_version: '0.10'
+    - nodejs_version: '1' #iojs
     - nodejs_version: '0.12'
-
-# Install scripts
+    - nodejs_version: '0.10'
 install:
-  # Get the latest version of Node.js
   - ps: Install-Product node $env:nodejs_version
-  # install modules
+  - set CI=true
+  - npm -g install npm@latest
+  - set PATH=%APPDATA%\npm;%PATH%
   - npm install
-
-# Post-install test scripts
+matrix:
+  fast_finish: true
+build: off
+version: '{build}'
+shallow_clone: true
+clone_depth: 1
 test_script:
-  # output useful info
   - node --version
   - npm --version
-  # run tests
   - npm test
