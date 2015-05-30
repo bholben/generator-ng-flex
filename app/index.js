@@ -65,7 +65,7 @@ Generator.prototype.prompting = function prompting() {
     {
       type: 'list',
       name: 'structure',
-      message: 'Which structure should be used?',
+      message: 'Select the file/folder structure.',
       default: 'module-only',
       choices: [
         {
@@ -92,7 +92,7 @@ Generator.prototype.prompting = function prompting() {
     {
       type: 'list',
       name: 'markup',
-      message: 'Which is the preferred markup language?',
+      message: 'Select the preferred markup language.',
       default: 'jade',
       choices: [
         {
@@ -112,7 +112,7 @@ Generator.prototype.prompting = function prompting() {
     {
       type: 'list',
       name: 'appScript',
-      message: 'Which is the preferred application scripting language?',
+      message: 'Select the preferred application scripting language.',
       default: 'coffee',
       choices: [
         {
@@ -142,7 +142,7 @@ Generator.prototype.prompting = function prompting() {
     {
       type: 'list',
       name: 'testScript',
-      message: 'Which is the preferred test scripting language?',
+      message: 'Select the preferred test scripting language.',
       default: function (answers) {
         return answers.appScript;
       },
@@ -168,7 +168,7 @@ Generator.prototype.prompting = function prompting() {
     {
       type: 'list',
       name: 'testFramework',
-      message: 'Which is the preferred unit testing framework?',
+      message: 'Select the preferred unit testing framework.',
       default: 'mocha',
       choices: [
         {
@@ -184,7 +184,7 @@ Generator.prototype.prompting = function prompting() {
     {
       type: 'list',
       name: 'e2eTestFramework',
-      message: 'Which is the preferred e2e testing framework?',
+      message: 'Select the preferred e2e testing framework.',
       default: function (answers) {
         return answers.testFramework;
       },
@@ -202,7 +202,7 @@ Generator.prototype.prompting = function prompting() {
     {
       type: 'list',
       name: 'style',
-      message: 'Which is the preferred style language?',
+      message: 'Select the preferred style language.',
       default: 'styl',
       choices: [
         {
@@ -226,13 +226,13 @@ Generator.prototype.prompting = function prompting() {
     {
       type: 'confirm',
       name: 'polymer',
-      message: 'Should Polymer support be enabled?',
+      message: 'Enable Polymer support?',
       default: false
     },
     {
       type: 'list',
       name: 'framework',
-      message: 'Should a framework be setup?',
+      message: 'Should a CSS framework be setup?',
       choices: function (answers) {
         var choices = [
           {
@@ -375,7 +375,6 @@ Generator.prototype.configuring = function configuring() {
 
   // copy over common project files
   [
-    '.bowerrc',
     '.editorconfig',
     '.eslintrc',
     '.jscsrc',
@@ -397,6 +396,10 @@ Generator.prototype.configuring = function configuring() {
   this.copySimpleFile('_gulpfile.js', 'Gulpfile.js');
   this.copySimpleFile('gitignore', '.gitignore');
   this.copySimpleFile('_readme.md', 'README.md');
+
+  if (this.appScript === 'coffee') {
+    this.copySimpleFile('coffeelint.json');
+  }
 
   if (this.appScript === 'ts') {
     this.copySimpleFile('_tsd.json');

@@ -227,10 +227,6 @@ describe('Module generator', function () {
           .on('end', done);
       });
 
-      it('should add door.handle to app/home/my-door-module.coffee', function () {
-        assert.fileContent('app/home/my-door/my-door-module.coffee', / {4}\'myDoor.handle\'/);
-      });
-
       it('should name module in app/home/my-door/my-door-module.coffee home.myDoor', function () {
         assert.fileContent('app/home/my-door/my-door-module.coffee', /angular[^$]*.module[^$]*\'home.myDoor\'/);
       });
