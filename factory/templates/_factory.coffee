@@ -1,13 +1,8 @@
 'use strict'
 
-###*
- # @ngdoc service
- # @name <% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>.factory:<%= upperCamel %>
+angular.module '<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>'
+.factory '<%= upperCamel %>', class <%= upperCamel %>
 
- # @description
-
-###
-class <%= upperCamel %>
   @instance = undefined
   @someValue = '<%= upperCamel %>'
   constructor: ->
@@ -16,6 +11,3 @@ class <%= upperCamel %>
   @someMethod: ->
     '<%= upperCamel %>'
 
-angular
-  .module '<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>'
-  .factory '<%= upperCamel %>', [<%= upperCamel %>]

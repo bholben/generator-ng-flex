@@ -1,19 +1,11 @@
 'use strict'
 
-###*
- # @ngdoc service
- # @name <% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>.service:<%= upperCamel %>
+angular.module '<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>'
+.service '<%= upperCamel %>', class <%= upperCamel %>
 
- # @description
-
-###
-class <%= upperCamel %>
   constructor: ->
     @name = '<%= upperCamel %>'
 
   get: ->
     @name
 
-angular
-  .module '<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>'
-  .service '<%= upperCamel %>', <%= upperCamel %>
