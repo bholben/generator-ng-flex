@@ -1,8 +1,8 @@
 # generator-ng-flex 
 
-> [Yeoman](http://yeoman.io) generator for modular AngularJS apps with Gulp and optional Polymer support
+> Flexible [Yeoman](http://yeoman.io) generator for modular AngularJS apps with Gulp and a variety of options for pre-processing, testing, etc.
 
-*Forked from Dustin Specker's ng-flex and inspired by [John Papa](https://github.com/johnpapa)'s [Angular Style Guide](https://github.com/johnpapa/angular-styleguide) and [Todd Motto](https://github.com/toddmotto)'s [AngularJS styleguide](https://github.com/toddmotto/angularjs-styleguide).*
+*Forked from Dustin Specker's ng-poly and inspired by [John Papa](https://github.com/johnpapa)'s [Angular Style Guide](https://github.com/johnpapa/angular-styleguide) and [Todd Motto](https://github.com/toddmotto)'s [AngularJS styleguide](https://github.com/toddmotto/angularjs-styleguide).*
 
 ## Purpose
 
