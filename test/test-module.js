@@ -89,10 +89,6 @@ describe('Module generator', function () {
       ]);
     });
 
-    it('should add comma to ui.router in app/app-module.js', function () {
-      assert.fileContent('app/app-module.js', / {4}\'ui.router\',/);
-    });
-
     it('should add testCoffee to app/app-module.js deps', function () {
       assert.fileContent('app/app-module.js', / {4}\'testCoffee\'/);
     });
@@ -127,10 +123,6 @@ describe('Module generator', function () {
       ]);
     });
 
-    it('should add comma to ui.router in app/app-module.js', function () {
-      assert.fileContent('app/app-module.js', / {4}\'ui.router\',/);
-    });
-
     it('should add testEs6 to app/app-module.js deps', function () {
       assert.fileContent('app/app-module.js', / {4}\'testEs6\'/);
     });
@@ -161,10 +153,6 @@ describe('Module generator', function () {
         'app/test-js/test-js-controller.js',
         'app/test-js/test-js-controller_test.js'
       ]);
-    });
-
-    it('should add comma to ui.router in app/app-module.js', function () {
-      assert.fileContent('app/app-module.js', / {4}\'ui.router\',/);
     });
 
     it('should add testJs to app/app-module.js deps', function () {
@@ -199,10 +187,6 @@ describe('Module generator', function () {
         'app/test-ts/test-ts-controller.ts',
         'app/test-ts/test-ts-controller_test.js'
       ]);
-    });
-
-    it('should add comma to ui.router in app/app-module.js', function () {
-      assert.fileContent('app/app-module.js', / {4}\'ui.router\',/);
     });
 
     it('should add testTs to app/app-module.js deps', function () {
@@ -252,10 +236,6 @@ describe('Module generator', function () {
       });
     });
 
-    it('should add comma to ui.router in app/home/home-module.js deps', function () {
-      assert.fileContent('app/home/home-module.js', / {4}\'ui.router\',/);
-    });
-
     it('should add home.door to app/home/home-module.js deps', function () {
       assert.fileContent('app/home/home-module.js', / {4}\'home.myDoor\'/);
     });
@@ -283,10 +263,6 @@ describe('Module generator', function () {
     it('should add home.myModule in app/home/home-module.js', function () {
       assert.fileContent('app/home/home-module.js', / {4}\'home.myModule\'/);
     });
-
-    it('should add myModule state to app/home/my-module/my-module-routes.js', function () {
-      assert.fileContent('app/home/my-module/my-module-routes.js', /[.]state\(\'myModule\', /);
-    });
   });
 
   describe('adding a deep level Typescript module', function () {
@@ -305,10 +281,6 @@ describe('Module generator', function () {
           path.join(__dirname, '../view')
         ])
         .on('end', done);
-    });
-
-    it('should add comma to ui.router in app/home/home-module.js deps', function () {
-      assert.fileContent('app/home/home-module.js', / {4}\'ui.router\',/);
     });
 
     it('should add home.myHouse to app/home/home-module.js deps', function () {

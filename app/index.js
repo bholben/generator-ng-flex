@@ -29,7 +29,7 @@ Generator.prototype.initializing = function initializing() {
 Generator.prototype.prompting = function prompting() {
   var done = this.async();
 
-  this.log(yosay('Welcome to ngPoly!'));
+  this.log(yosay('Welcome to ngFlex!'));
 
   // ask for app name
   // get preferred langugaes
@@ -269,7 +269,7 @@ Generator.prototype.prompting = function prompting() {
       type: 'confirm',
       name: 'ngRoute',
       message: 'Should ngRoute be used instead of UI Router?',
-      default: false
+      default: true
     },
     {
       type: 'checkbox',
