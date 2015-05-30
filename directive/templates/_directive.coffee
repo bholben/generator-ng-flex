@@ -1,37 +1,19 @@
 'use strict'
-###*
- # @ngdoc directive
- # @name <% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>.directive:<%= lowerCamel %>
- # @restrict EA
- # @element
 
- # @description
+angular.module '<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>'
+.directive '<%= lowerCamel %>', ->
 
- # @example
-   <example module="<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>">
-     <file name="index.html">
-      <<%= hyphenName %>></<%= hyphenName %>>
-     </file>
-   </example>
+  templateUrl: '<%= templateUrl %>/<%= hyphenName %>-directive.tpl.html'
+  controller: '<%= upperCamel %><% if (controllerAs) { %> as <%= lowerCamel %><% } %>'
+  link: (scope, element, attrs) ->
+    ###jshint unused:false ###
+    ###eslint "no-unused-vars": [2, {"args": "none"}]###
 
-###
-class <%= upperCamel %>
-  constructor: ->
-    return {
-      restrict: 'AE'
-      scope: {}
-      templateUrl: '<%= templateUrl %>/<%= hyphenName %>-directive.tpl.html'
-      replace: false<% if (controllerAs) { %>
-      controllerAs: '<%= lowerCamel %>'<% } %>
-      controller:<% if (!controllerAs) { %> ($scope)<% } %> ->
-        <% if (controllerAs) { %>vm = @
-        vm.name = '<%= lowerCamel %>'<% } else { %>$scope.<%= lowerCamel %> = {}
-        $scope.<%= lowerCamel %>.name = '<%= lowerCamel %>'<% } %>
-      link: (scope, element, attrs) ->
-        ###jshint unused:false ###
-        ###eslint "no-unused-vars": [2, {"args": "none"}]###
-    }
 
-angular
-  .module '<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>'
-  .directive '<%= lowerCamel %>', <%= upperCamel %>
+.controller '<%= upperCamel %>', class <%= upperCamel %>
+
+  constructor: <% if (!controllerAs) { %>($scope) <% } %>->
+
+    <% if (controllerAs) { %>@name = '<%= lowerCamel %>'<% } else { %>$scope.<%= lowerCamel %> = {}
+    $scope.<%= lowerCamel %>.name = '<%= lowerCamel %>'<% } %>
+

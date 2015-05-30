@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>')
+angular.module '<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>'
 .controller '<%= ctrlName %>', class <%= ctrlName %>
 
   constructor: <% if (!controllerAs) { %>($scope) <% } %>->
