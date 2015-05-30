@@ -73,7 +73,7 @@ Generator.prototype.writing = function writing() {
 
   if (!config.skipController) {
     // call controller subgenerator
-    this.composeWith('ng-poly:controller', {
+    this.composeWith('ng-flex:controller', {
       args: [this.name.replace('.', '-')],
       options: {
         module: this.module,
@@ -95,7 +95,7 @@ Generator.prototype.writing = function writing() {
   }
 
   // call view subgenerator
-  this.composeWith('ng-poly:view', {
+  this.composeWith('ng-flex:view', {
     args: [path.basename(this.templateUrl)],
     options: {
       module: this.module,

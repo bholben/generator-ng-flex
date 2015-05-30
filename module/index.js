@@ -77,7 +77,7 @@ Generator.prototype.end = function end() {
   this.config.set('lastUsedModule', this.module);
 
   if (this.options && !this.options.empty) {
-    this.composeWith('ng-poly:route', {
+    this.composeWith('ng-flex:route', {
       args: [utils.lowerCamel(this.module.split(/[\/\\]/).pop())],
       options: {
         module: this.module,

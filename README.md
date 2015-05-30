@@ -1,24 +1,21 @@
-# generator-ng-poly [![NPM version](https://badge.fury.io/js/generator-ng-poly.svg)](http://badge.fury.io/js/generator-ng-poly) [![Build Status](https://travis-ci.org/dustinspecker/generator-ng-poly.svg?branch=master)](https://travis-ci.org/dustinspecker/generator-ng-poly) [![Coverage Status](https://img.shields.io/coveralls/dustinspecker/generator-ng-poly.svg)](https://coveralls.io/r/dustinspecker/generator-ng-poly?branch=master)
-[![Code Climate](https://codeclimate.com/github/dustinspecker/generator-ng-poly/badges/gpa.svg)](https://codeclimate.com/github/dustinspecker/generator-ng-poly) [![Dependencies](https://david-dm.org/dustinspecker/generator-ng-poly.svg)](https://david-dm.org/dustinspecker/generator-ng-poly/#info=dependencies&view=table) [![DevDependencies](https://david-dm.org/dustinspecker/generator-ng-poly/dev-status.svg)](https://david-dm.org/dustinspecker/generator-ng-poly/#info=devDependencies&view=table)
+# generator-ng-flex 
 
 > [Yeoman](http://yeoman.io) generator for modular AngularJS apps with Gulp and optional Polymer support
 
-*Inspired by [John Papa](https://github.com/johnpapa)'s [Angular Style Guide](https://github.com/johnpapa/angular-styleguide) and [Todd Motto](https://github.com/toddmotto)'s [AngularJS styleguide](https://github.com/toddmotto/angularjs-styleguide).*
+*Forked from Dustin Specker's ng-flex and inspired by [John Papa](https://github.com/johnpapa)'s [Angular Style Guide](https://github.com/johnpapa/angular-styleguide) and [Todd Motto](https://github.com/toddmotto)'s [AngularJS styleguide](https://github.com/toddmotto/angularjs-styleguide).*
 
 ## Purpose
 
 This generator focuses on organizing Angular components by feature (home, about, video player, etc.) instead of by type (controller, service, directive, etc.) to encourage the development of self-contained, reusable components.
 
-A typical workflow with this generator consists of creating an Angular module ([ng-poly:module](#module)) and then generating controllers, directives, etc. for this module to create a new feature.
-
-**Polymer is just an added feature, but it isn't required to utilize this generator.**
+A typical workflow with this generator consists of creating an Angular module ([ng-flex:module](#module)) and then generating controllers, directives, etc. for this module to create a new feature.
 
 ## Usage
 
-Install `generator-ng-poly`:
+Install `generator-ng-flex`:
 
 ```
-npm install -g bower gulp yo generator-ng-poly
+npm install -g bower gulp yo generator-ng-flex
 ```
 
 If TypeScript is going to be used, `tsd` will need to be installed:
@@ -27,36 +24,32 @@ If TypeScript is going to be used, `tsd` will need to be installed:
 npm install -g tsd
 ```
 
-Run `yo ng-poly`
+Run `yo ng-flex`
 Yeoman will then ask for an app name and language preferences.
 
-**If using Node 0.12, there is a bug in Yeoman or Node causing yeoman generators to hang. With ng-poly, if after it outputs the generated home module files it hangs, then it is safe to enter `Ctrl+C`, etc. The project is good to go and everything else should work normally.**
+**If using Node 0.12, there is a bug in Yeoman or Node causing yeoman generators to hang. With ng-flex, if after it outputs the generated home module files it hangs, then it is safe to enter `Ctrl+C`, etc. The project is good to go and everything else should work normally.**
 
 Run `gulp` to build and start the development environment. [More detail on Gulp tasks](#gulp-tasks-in-detail)
-
-## User Groups
-
-Please feel free to ask any questions on our [GitHub Issues](https://github.com/dustinspecker/generator-ng-poly/issues) or [Google Group](https://groups.google.com/forum/#!forum/generator-ng-poly).
 
 ## Generators
 
 Available generators:
 * AngularJS
-  - [ng-poly](#app) (a.k.a. [ng-poly:app](#app))
-  - [ng-poly:constant](#constant)
-  - [ng-poly:controller](#controller)
-  - [ng-poly:decorator](#decorator)
-  - [ng-poly:directive](#directive)
-  - [ng-poly:factory](#factory)
-  - [ng-poly:filter](#filter)
-  - [ng-poly:module](#module)
-  - [ng-poly:provider](#provider)
-  - [ng-poly:route](#route)
-  - [ng-poly:service](#service)
-  - [ng-poly:value](#value)
-  - [ng-poly:view](#view)
+  - [ng-flex](#app) (a.k.a. [ng-flex:app](#app))
+  - [ng-flex:constant](#constant)
+  - [ng-flex:controller](#controller)
+  - [ng-flex:decorator](#decorator)
+  - [ng-flex:directive](#directive)
+  - [ng-flex:factory](#factory)
+  - [ng-flex:filter](#filter)
+  - [ng-flex:module](#module)
+  - [ng-flex:provider](#provider)
+  - [ng-flex:route](#route)
+  - [ng-flex:service](#service)
+  - [ng-flex:value](#value)
+  - [ng-flex:view](#view)
 * Polymer
-  - [ng-poly:element](#element)
+  - [ng-flex:element](#element)
 
 Languages and Features supported:
   * Angular Versions
@@ -75,8 +68,8 @@ Languages and Features supported:
     - Jasmine (Karma as the test runner) for AngularJS
     - Mocha with Chai (Karma as the test runner) for AngularJS
   * e2e testing
-    - Jasmine (ran with Protractor) for AngularJS
-    - Mocha, Chai, and Chai as Promised (ran with Protractor) for AngularJS
+    - Jasmine (run with Protractor) for AngularJS
+    - Mocha, Chai, and Chai as Promised (run with Protractor) for AngularJS
   * Frameworks (scaffolds simple navbar)
     - Angular Material (1.3.* or higher only)
       - Doesn't scaffold navbar, yet
@@ -126,7 +119,7 @@ Using `--stage prod` will concat and minify HTML, CSS, and Angular modules.
 
 Generators requiring a module can take a module option to bypass the prompt:
 ```
-yo ng-poly:view newView --module=home/kitchen
+yo ng-flex:view newView --module=home/kitchen
 ```
 **A module value of `app` will add the new components to the module defined in app.js or app.coffee.**
 * * *
@@ -138,7 +131,7 @@ Asks for application name and language preferences to scaffold out an applicatio
 
 Example:
 
-Run `yo ng-poly` to get started. ng-poly will then asks you some questions:
+Run `yo ng-flex` to get started. ng-flex will then asks you some questions:
 
 ```
 [?] What is the app's name?
@@ -158,7 +151,7 @@ Run `yo ng-poly` to get started. ng-poly will then asks you some questions:
 [?] Which additional Bower components should be installed?
 ```
 
-ng-poly makes some assumptions, but these can be overridden.
+ng-flex makes some assumptions, but these can be overridden.
 
 | Option | Default Value| Info |
 | -------| ------------ | ---- |
@@ -167,9 +160,9 @@ ng-poly makes some assumptions, but these can be overridden.
 | app-dir | app | Source code will be generated here. |
 | unit-test-dir | app | Unit tests will be generated here. |
 | skip-controller | false | Should the route generator *skip* creating a controller? |
-| skip-install | false | Should ng-poly skip installing Bower and npm dependencies? |
+| skip-install | false | Should ng-flex skip installing Bower and npm dependencies? |
 
-Example: `yo ng-poly --port=8080 --app-dir=src` to override the default port and app directory.
+Example: `yo ng-flex --port=8080 --app-dir=src` to override the default port and app directory.
 
 A **module-only** structure produces:
 ```
@@ -268,7 +261,7 @@ Generates a constant and its test.
 
 Example:
 ```
-yo ng-poly:constant theHero
+yo ng-flex:constant theHero
 [?] Which module is this for?
 ```
 
@@ -317,7 +310,7 @@ Genrates a controller and its test.
 
 Example:
 ```
-yo ng-poly:controller micro
+yo ng-flex:controller micro
 [?] Which module is this for?
 ```
 
@@ -373,13 +366,13 @@ Generates a decorator and its test.
 
 Example:
 ```
-yo ng-poly:decorator awesomeService
+yo ng-flex:decorator awesomeService
 [?] Which module is this for?
 ```
 
 **Note: If decorating a service starting with a `$` you must escape it like:**
 
-`yo ng-poly:decorator \$state`
+`yo ng-flex:decorator \$state`
 
 Produces `app/module/awesome-service-decorator.js`:
 ```javascript
@@ -437,7 +430,7 @@ Generates a directive, its template, and its test.
 
 Example:
 ```
-yo ng-poly:directive fancy-button
+yo ng-flex:directive fancy-button
 [?] Which module is this for?
 ```
 
@@ -521,7 +514,7 @@ Generates a factory and its test.
 
 Example:
 ```
-yo ng-poly:factory cake
+yo ng-flex:factory cake
 [?] Which module is this for?
 ```
 
@@ -583,7 +576,7 @@ Generates a filter and its test.
 
 Example:
 ```
-yo ng-poly:filter coffee
+yo ng-flex:filter coffee
 [?] Which module is this for?
 ```
 
@@ -641,7 +634,7 @@ Generates a new module and create a new route. Updates parent module's dependenc
 
 **Top Level Example:**
 ```
-yo ng-poly:module top
+yo ng-flex:module top
 ```
 
 Produces `app/top/top-module.js`:
@@ -710,7 +703,7 @@ Updates `app/app-module.js`:
 
 **Deep Level Example:**
 ```
-yo ng-poly:module top/bottom
+yo ng-flex:module top/bottom
 ```
 
 Produces `app/top/bottom/bottom-module.js`, `app/top/boottom/bottom-routes.js`, `app/top/bottom/bottom-controller.js`, `app/top/bottom/bottom-controller_test.js`, `app/top/bottom/bottom.tpl.html`, `app/top/bottom/bottom.less`, `e2e/bottom/bottom.po.js`, `e2e/bottom/bottom_test.js`
@@ -741,7 +734,7 @@ Updates `app/top/top-module.js`:
 * * *
 **Deeper Level Example:**
 ```
-yo ng-poly:module top/bottom/bottomest
+yo ng-flex:module top/bottom/bottomest
 ```
 
 Produces 'bottom.bottomest' module and routes, a controller, controller test, style, and a view in `app/top/bottom/bottomest/`
@@ -756,7 +749,7 @@ It just keeps going...
 * * *
 **Empty modules**
 
-By running `ng-poly:module newHome --empty` a module's routes file will **not** be created.
+By running `ng-flex:module newHome --empty` a module's routes file will **not** be created.
 
 The module file will omit the router dependency:
 ```javascript
@@ -781,7 +774,7 @@ Generates a provider and its test.
 
 Example:
 ```
-yo ng-poly:provider bacon
+yo ng-flex:provider bacon
 [?] Which module is this for?
 ```
 
@@ -838,7 +831,7 @@ Adds a new route and generates a controller and view. The name provided is used 
 
 Example:
 ```
-yo ng-poly:route your-place
+yo ng-flex:route your-place
 [?] Which module is this for?
 [?] What's the URL for this route? (UI Router only)
 [?] What's the templateURL for this route?
@@ -927,7 +920,7 @@ Produces `app/module/your-place-controller.js`, `app/module/your-place-controlle
 * * *
 The route generator can take URL and templateUrl options, as well.
 ```
-yo ng-poly:route yourPlace --url=yourPlace --template-url=your-place
+yo ng-flex:route yourPlace --url=yourPlace --template-url=your-place
 ```
 The URL will automatically be prepended with `/` and and the templateUrl will be appended with `.tpl.html`.
 * * *
@@ -937,7 +930,7 @@ Generates a service and its test.
 
 Example:
 ```
-yo ng-poly:service cheap-or-good
+yo ng-flex:service cheap-or-good
 [?] Which module is this for?
 ```
 
@@ -994,7 +987,7 @@ Generates a value and its test.
 
 Example:
 ```
-yo ng-poly:value morals
+yo ng-flex:value morals
 [?] Which module is this for?
 ```
 
@@ -1043,7 +1036,7 @@ Generates a view and its style.
 
 Example:
 ```
-yo ng-poly:view nice
+yo ng-flex:view nice
 [?] Which module is this for?
 ```
 
@@ -1062,7 +1055,7 @@ Generates a Polymer element.
 
 Example:
 ```
-yo ng-poly:element gold-silver
+yo ng-flex:element gold-silver
 ```
 
 Produces `app/components/gold-silver/gold-silver.less`:
@@ -1109,9 +1102,9 @@ Produces `app/components/gold-silver/gold-silver.js`:
 
 ## Configurations
 
-It is possible to override the configurations initially specified when `yo ng-poly` was ran.
+It is possible to override the configurations initially specified when `yo ng-flex` was run.
 
-Each generator is able to take the following arguments. For example, `yo ng-poly:module test --controller-as=true --markup=jade` will override the configuration settings for everything generated by this command.
+Each generator is able to take the following arguments. For example, `yo ng-flex:module test --controller-as=true --markup=jade` will override the configuration settings for everything generated by this command.
 
 | Option | Possible Values|
 | ------ | -------------- |
@@ -1127,7 +1120,7 @@ Each generator is able to take the following arguments. For example, `yo ng-poly
 
 ### Controller As Syntax
 
-This generator has support for the Controller As syntax. Yeoman will ask if this should be enabled when `ng-poly:app` is ran.
+This generator has support for the Controller As syntax. Yeoman will ask if this should be enabled when `ng-flex:app` is run.
 
 This will generate controllers like:
 
@@ -1267,7 +1260,7 @@ Lastly, views will be generated like:
 
 ## Gulp Tasks in Detail
 
-*Items in italics are only ran in --stage=prod*
+*Items in italics are only run in --stage=prod*
 
 Available tasks:
 - `gulp` or `gulp default`

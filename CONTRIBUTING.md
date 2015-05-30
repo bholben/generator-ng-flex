@@ -6,8 +6,8 @@
 #### Setup
 
 ```sh
-$ git clone https://github.com/dustinspecker/generator-ng-poly.git
-$ cd generator-ng-poly
+$ git clone https://github.com/bholben/generator-ng-flex.git
+$ cd generator-ng-flex
 $ npm install
 $ npm link
 ```
@@ -23,7 +23,7 @@ $ npm test
 #### Workflow
 
 - Fork the repository
-- Clone your fork and change directory to it (`git clone https://github.com/yourUserName/generator-ng-poly.git && cd generator-ng-poly`)
+- Clone your fork and change directory to it (`git clone https://github.com/yourUserName/generator-ng-flex.git && cd generator-ng-flex`)
 - Install project dependencies (`npm install`)
 - Link your fork (`npm link`)
 - Develop

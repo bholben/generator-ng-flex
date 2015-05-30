@@ -425,7 +425,7 @@ Generator.prototype.install = function install() {
 };
 
 Generator.prototype.end = function end() {
-  this.composeWith('ng-poly:module', {
+  this.composeWith('ng-flex:module', {
     args: ['home'],
     options: {
       module: 'home',
