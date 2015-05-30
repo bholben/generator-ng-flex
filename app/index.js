@@ -46,7 +46,7 @@ Generator.prototype.prompting = function prompting() {
       type: 'list',
       name: 'ngversion',
       message: 'Which version of Angular should be used?',
-      default: '1.3.*',
+      default: '1.4.*',
       choices: [
         {
           name: '1.4.* (Currently RC)',
@@ -113,7 +113,7 @@ Generator.prototype.prompting = function prompting() {
       type: 'list',
       name: 'appScript',
       message: 'Which is the preferred application scripting language?',
-      default: 'js',
+      default: 'coffee',
       choices: [
         {
           name: 'CoffeeScript',
@@ -169,7 +169,7 @@ Generator.prototype.prompting = function prompting() {
       type: 'list',
       name: 'testFramework',
       message: 'Which is the preferred unit testing framework?',
-      default: 'jasmine',
+      default: 'mocha',
       choices: [
         {
           name: 'Jasmine',
@@ -203,7 +203,7 @@ Generator.prototype.prompting = function prompting() {
       type: 'list',
       name: 'style',
       message: 'Which is the preferred style language?',
-      default: 'less',
+      default: 'styl',
       choices: [
         {
           name: 'CSS',
