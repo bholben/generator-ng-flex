@@ -1,14 +1,7 @@
 'use strict'
 
-###*
- # @ngdoc service
- # @name <% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>.provider:<%= upperCamel %>
+angular.module '<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>'
+.provider '<%= upperCamel %>', ->
+  $get: ->
+    '<%= upperCamel %>'
 
- # @description
-
-###
-angular
-  .module '<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>'
-  .provider '<%= upperCamel %>', ->
-    $get: ->
-      '<%= upperCamel %>'
