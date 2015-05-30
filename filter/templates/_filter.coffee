@@ -1,22 +1,9 @@
 'use strict'
 
-###*
- # @ngdoc filter
- # @name <% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>.filter:<%= lowerCamel %>
+angular.module '<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>'
+.filter '<%= lowerCamel %>', class <%= upperCamel %>
 
- # @description
+  constructor: (str='', len=20) ->
 
- # @param {Array} input The array to filter
- # @returns {Array} The filtered array
+    return if str.length > len then str.substring 0, len + '...' else str
 
-###
-angular
-  .module '<% if (parentModuleName) { %><%= parentModuleName %>.<% } %><%= moduleName %>'
-  .filter '<%= lowerCamel %>', ->
-    (input) ->
-      temp = []
-      angular.forEach input, (item) ->
-        if (item > 3)
-          temp.push item
-
-      return temp
